@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>沖繩專業包車旅遊｜客製化行程 5/8/10 小時服務</title>
+    <style>
+        /* 全局設定 */
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #2c3e50;
+            --accent-color: #f39c12;
+            --light-bg: #f8f9fa;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft JhengHei", sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            color: var(--secondary-color);
+        }
+
+        /* 導航欄 */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+
+        .cta-button {
+            background-color: var(--primary-color);
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Hero 區塊 */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1542051841857-5f90071e7989?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding-top: 60px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* 通用區塊樣式 */
+        section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .section-title span {
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 0 auto;
+        }
+
+        /* 服務特色 */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .feature-card {
+            padding: 30px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* 車型介紹 */
+        .bg-light {
+            background-color: var(--light-bg);
+            width: 100%;
+            max-width: 100%; 
+        }
+
+        .vehicles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .vehicle-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .vehicle-img {
+            width: 100%;
+            height: 200px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 1.2rem;
+        }
+        
+        /* 由於無法直接提供您的圖片，這裡使用顏色區塊代替，您之後可以替換成真實圖片的<img>標籤 */
+        .vehicle-img.crown { background: #e3f2fd; }
+        .vehicle-img.serena { background: #e8f5e9; }
+        .vehicle-img.alpha { background: #fff3e0; }
+        .vehicle-img.hiace { background: #f3e5f5; }
+
+        .vehicle-info {
+            padding: 20px;
+        }
+
+        .vehicle-info h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        .specs {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+        }
+
+        .specs li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .specs li::before {
+            content: "✓";
+            color: var(--primary-color);
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        /* 方案詳情 */
+        .plans-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .plan-box {
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .plan-box.popular {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 15px rgba(0,123,255,0.2);
+            position: relative;
+        }
+
+        .plan-tag {
+            background: var(--accent-color);
+            color: white;
+            padding: 5px 10px;
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+        }
+
+        /* 費用說明 */
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .detail-list ul {
+            padding-left: 20px;
+        }
+
+        .detail-list.included li { color: #2ecc71; }
+        .detail-list.excluded li { color: #e74c3c; }
+
+        /* 聯絡我們 */
+        .contact-cta {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            border-radius: 10px;
+            margin: 40px auto;
+            max-width: 1000px;
+        }
+
+        .contact-cta h2 { color: white; }
+
+        .btn-large {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-top: 20px;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        .btn-large:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            background-color: #333;
+            color: #ccc;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        /* 手機版調整 */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2rem; }
+            .details-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; } /* 簡化手機版導航 */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="#" class="logo">沖繩當地地接綠牌車包車</a>
+            <div class="nav-links">
+                <a href="#features">服務特色</a>
+                <a href="#vehicles">車款介紹</a>
+                <a href="#plans">包車方案</a>
+                <a href="#details">費用說明</a>
+                <a href="#contact" class="cta-button">立即預約</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1>沖繩客製化包車旅遊</h1>
+            <p>5小時 / 8小時 / 10小時 · 專屬司機 · 暢遊沖繩無障礙</p>
+            <a href="#contact" class="btn-large">規劃您的行程</a>
+        </div>
+    </div>
+
+    <section id="features">
+        <div class="section-title">
+            <h2>為什麼選擇我們</h2>
+            <span></span>
+        </div>
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🗺️</div>
+                <h3>行程自由客製</h3>
+                <p>想去哪就去哪！不受團體行程限制，那霸市區、美國村、美麗海水族館任您安排。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🗣️</div>
+                <h3>中日語服務</h3>
+                <p>可選擇日語或華語司機，並提供線上中文客服，溝通無障礙，安心出遊。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👶</div>
+                <h3>親子友善</h3>
+                <p>免費提供第一張兒童安全座椅，車內空間寬敞，適合家庭旅遊。</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="bg-light">
+        <section id="vehicles">
+            <div class="section-title">
+                <h2>舒適車款選擇</h2>
+                <span></span>
+            </div>
+            <div class="vehicles-grid">
+                <div class="vehicle-card">
+                    <div class="vehicle-img crown">豐田 Crown 或同級</div>
+                    <div class="vehicle-info">
+                        <h3>舒適 5 人座</h3>
+                        <ul class="specs">
+                            <li>建議人數：4 位乘客</li>
+                            <li>行李容量：2 件 28 吋以下行李</li>
+                            <li>適合情侶、小家庭</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="vehicle-card">
+                    <div class="vehicle-img serena">豐田 Serena 或同級</div>
+                    <div class="vehicle-info">
+                        <h3>商務 6 人座</h3>
+                        <ul class="specs">
+                            <li>建議人數：5 位乘客</li>
+                            <li>行李容量：2 件 28 吋以下行李</li>
+                            <li>空間寬敞舒適</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="vehicle-card">
+                    <div class="vehicle-img alpha">豐田 Alphard 或同級</div>
+                    <div class="vehicle-info">
+                        <h3>豪華 7 人座</h3>
+                        <ul class="specs">
+                            <li>建議人數：5 位成人</li>
+                            <li>行李容量：4 件 28 吋以下行李</li>
+                            <li>VIP 尊榮體驗</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="vehicle-card">
+                    <div class="vehicle-img hiace">豐田 Hiace 或同級</div>
+                    <div class="vehicle-info">
+                        <h3>經濟 10 人座</h3>
+                        <ul class="specs">
+                            <li>建議人數：9 位乘客</li>
+                            <li>行李容量：10 件 28 吋以下行李</li>
+                            <li>適合家族旅遊、朋友團</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 20px; color: #666;">* 另有 19 人座小型巴士及 49 人座大型巴士，歡迎諮詢。</p>
+        </section>
+    </div>
+
+    <section id="plans">
+        <div class="section-title">
+            <h2>包車方案</h2>
+            <span></span>
+        </div>
+        <div class="plans-container">
+            <div class="plan-box">
+                <h3>5 小時輕鬆遊</h3>
+                <p class="price">南部 ~ 中部區域</p>
+                <p>適合短暫停留或只想去特定景點的旅客。範圍限恩納村以南。</p>
+                <hr>
+                <p>行程範例：那霸出發 -> 美國村 -> 港川外人住宅 -> 返回那霸</p>
+            </div>
+            <div class="plan-box popular">
+                <span class="plan-tag">最熱門</span>
+                <h3>10 小時精華遊</h3>
+                <p class="price">沖繩本島全域</p>
+                <p>最受歡迎的選擇，足夠時間走訪中北部精華景點。</p>
+                <hr>
+                <p>行程範例：萬座毛 -> 古宇利島 -> 美麗海水族館 -> 美國村</p>
+            </div>
+            <div class="plan-box">
+                <h3>8 小時南部經典遊</h3>
+                <p class="price">沖繩本島全域</p>
+                <p>玩好玩滿！適合想一次打卡人文景點的旅客。</p>
+                <hr>
+                <p>行程範例：知念岬 -> 玉泉洞 -> 糸滿魚市場 ->瀨長島 </p>
+            </div>
+        </div>
+    </section>
+
+    <div class="bg-light">
+        <section id="details">
+            <div class="section-title">
+                <h2>費用與須知</h2>
+                <span></span>
+            </div>
+            <div class="details-grid">
+                <div>
+                    <h3>費用包含</h3>
+                    <div class="detail-list included">
+                        <ul>
+                            <li>強制汽車責任保險</li>
+                            <li>司機餐費、小費、僱傭費</li>
+                            <li>燃油費</li>
+                            <li>舉牌接機服務</li>
+                            <li>第一張兒童安全座椅免費</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <h3>費用不包含</h3>
+                    <div class="detail-list excluded">
+                        <ul>
+                            <li>高速公路過路費、停車費</li>
+                            <li>景點門票、個人餐費</li>
+                            <li>第二張安全座椅 (2000日幣/張)</li>
+                            <li>超時費用、夜間加成</li>
+                            <li>偏遠地區加價</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 30px; background: #fff; padding: 20px; border-radius: 8px;">
+                <h4>取消政策</h4>
+                <p>所選日期 5 天（含）之前取消，未使用可免費取消。<br>所選日期 1 ~ 4 天之間取消，收取手續費 60%。<br>當日取消無法退款。</p>
+            </div>
+        </section>
+    </div>
+
+    <section id="contact">
+        <div class="contact-cta">
+            <h2>準備好出發了嗎？</h2>
+            <p>立即預訂您的專屬沖繩包車之旅，享受無憂無慮的假期。</p>
+            <a href="https://line.me/ti/p/您的LineID" class="btn-large">LINE @go2okinawa</a>
+            <p style="margin-top: 15px; font-size: 0.9rem; opacity: 0.8;">或發送郵件至：umiyayamato@gmail.com</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 沖繩悠遊包車服務. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
