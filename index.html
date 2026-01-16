@@ -9,7 +9,7 @@
 
     <meta property="og:title" content="沖繩專業包車旅遊 | 11年經驗在地地接社">
     <meta property="og:description" content="提供沖繩包車與機場接送服務，在地合規綠牌車，可選中文/日語司機。行程自由客製，帶您暢遊沖繩美景！">
-    <meta property="og:image" content="https://yamatotravel-2026.github.io/go2okinawa/okinawa-bg.jpg">
+    <meta property="og:image" content="https://yamatotravel-2026.github.io/go2okinawa/alphard.png">
     <meta property="og:url" content="https://yamatotravel-2026.github.io/go2okinawa/">
     <meta property="og:type" content="website">
 
@@ -31,11 +31,15 @@
         }
 
         body {
-            font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft JhengHei", sans-serif;
-            margin: 0;
-            padding: 0;
-            color: var(--text-color);
-            line-height: 1.6;
+        /* 修改這行：將字體指定為 'Noto Sans TC' */
+        font-family: 'Noto Sans TC', "Microsoft JhengHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        
+        /* 其他保持不變 */
+        margin: 0;
+        padding: 0;
+        line-height: 1.6; /* 稍微增加行高，閱讀起來更像雜誌 */
+        color: var(--text-color);
+        background-color: #fcfcfc; /* (選填) 背景改極淡的灰白色，會比純白更護眼高級 */
         }
 
         h1, h2, h3 {
@@ -89,7 +93,7 @@
 
         /* Hero 區塊 */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://img.rurubu.jp/img_srw/andmore/images/0000478213/UH4YJyULdWZVu3sOR5uGRoChbGcHjJiA5dq6Oekl.jpg');
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://yamatotravel-2026.github.io/go2okinawa/okinawa-bg.jpg');
             background-size: cover;
             background-position: center;
             height: 80vh;
@@ -538,14 +542,38 @@
                             <li>景點門票、個人餐費</li>
                             <li>第二張安全座椅 (2000日幣/張)</li>
                             <li>超時費用、夜間加成</li>
-                            <li>偏遠地區加價</li>
+                            <li>跨區空車費、地區加價</li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div style="margin-top: 30px; background: #fff; padding: 20px; border-radius: 8px;">
-                <h4>取消政策</h4>
-                <p>所選日期 5 天（含）之前取消，未使用可免費取消。<br>所選日期 1 ~ 4 天之間取消，收取手續費 60%。<br>當日取消無法退款。</p>
+            <div style="background: #fff; border-left: 4px solid #e74c3c; padding: 20px; border-radius: 5px; box-shadow: 0 2px 15px rgba(0,0,0,0.05);">
+                <h4 style="margin-top: 0; color: #333;">
+                  取消與變更政策 
+                  <span style="font-size: 0.8em; font-weight: normal; color: #666; display: block; margin-top: 5px;">
+                      (時間以日本標準時間 GMT+9 為準)
+                  </span>
+                </h4>
+                <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.95rem;">
+                    <li style="margin-bottom: 12px; display: flex; align-items: flex-start;">
+                        <span style="color: #28a745; margin-right: 10px; font-weight: bold;">🗓️ 出發前 5 天 (含)</span>
+                        <span>全額退款 (免費取消)。</span>
+                    </li>
+                    <li style="margin-bottom: 12px; display: flex; align-items: flex-start;">
+                        <span style="color: #f39c12; margin-right: 10px; font-weight: bold;">⚠️ 出發前 1 ~ 4 天</span>
+                        <span>收取訂單總額 <strong style="color: #333;">60%</strong> 作為手續費。</span>
+                    </li>
+                    <li style="margin-bottom: 12px; display: flex; align-items: flex-start;">
+                        <span style="color: #e74c3c; margin-right: 10px; font-weight: bold;">🚫 出發當日 / 未出席</span>
+                        <span>收取訂單總額 <strong style="color: #333;">100%</strong>，無法退款。</span>
+                    </li>
+                    </ul>
+                    <hr style="border: 0; border-top: 1px dashed #ddd; margin: 15px 0;">
+
+                    <p style="font-size: 0.9rem; color: #666; margin-bottom: 0;">
+                      <strong>🌀 特殊情況 (不可抗力)：</strong><br>
+                      若遇颱風、天災等不可抗力因素（以當地政府發布警報或飛機停飛為準），我們將協助改期或 <span style="color: #28a745; font-weight: bold;">全額退款</span>，不收取任何手續費。
+                    </p>
             </div>
         </section>
     </div>
