@@ -332,19 +332,24 @@
         /* 手機版調整 */
         /* --- 📱 手機版導航欄專用修復代碼 --- */
         @media (max-width: 768px) {
+            .features-grid, .vehicles-grid, .plans-grid, .details-grid {
+                grid-template-columns: 1fr !important; /* 強制一行一張 */
+                gap: 30px !important; /* 卡片之間的距離 */
+                display: grid !important; /* 確保 Grid 系統運作 */
+            }
             /* 1. 讓導航欄變成垂直排列 (Logo在上，選單在下) */
             nav {
                 flex-direction: column;
                 padding: 15px;
             }
             body {
-            font-size: 17px; /* 電腦是 16px，手機改 17px 更清楚 */
-            font-weight: 400; /* 避免字體太細，手機上改回標準粗細 */
+                font-size: 17px; /* 電腦是 16px，手機改 17px 更清楚 */
+                font-weight: 400; /* 避免字體太細，手機上改回標準粗細 */
             }
 
             p, li {
-            line-height: 1.7; /* 拉開行距，閱讀不擁擠 */
-            color: #222; /* 字體顏色加深一點，對比度更高 */
+                line-height: 1.7; /* 拉開行距，閱讀不擁擠 */
+                color: #222; /* 字體顏色加深一點，對比度更高 */
             }
 
             /* 2. 調整 Logo 大小與位置 */
@@ -392,18 +397,19 @@
             .cta-button {
                 background-color: var(--primary-color) !important; /* 保持藍色 */
                 color: white !important;
+                width: 80%;
             }
 
             .card, .feature-card, .plan-card {
-                padding: 25px 20px; /* 減少卡片內邊距 */
+                padding: 30px 20px;!important; /* 減少卡片內邊距 */
             }
         
         /* 讓取消政策的字也大一點 */
             ul li {
-                font-size: 1rem;
-            }
-          
+                font-size: 1rem !important;
+                margin-bottom: 10px; /* 列表項目拉開一點距離 */
         }
+          
     
     </style>
 </head>
@@ -550,7 +556,7 @@
                 <h2>費用與須知</h2>
                 <span></span>
             </div>
-            <div class="details-grid" style="margin-bottom: 60px;">
+            <div class="features-grid" style="margin-bottom: 60px;">
                 <div>
                     <h3>費用包含</h3>
                     <div class="detail-list included">
