@@ -352,106 +352,83 @@
             color: #00c300; /* 勾勾顏色 (LINE綠) */
             font-weight: bold;
             margin-right: 8px;
-            font-size: 1.1rem;
+            font-size: 1.1rem; 
     }
 
    
         /* --- 📱 手機版導航欄專用修復代碼 --- */
         @media (max-width: 768px) {
-            .features-grid, .vehicles-grid, .plans-grid, .details-grid {
-                grid-template-columns: 1fr; !important; /* 強制一行一張 */
-                gap: 30px; !important; /* 卡片之間的距離 */
-                display: grid; !important; /* 確保 Grid 系統運作 */
-            }
-            /* 1. 讓導航欄變成垂直排列 (Logo在上，選單在下) */
-            nav {
-                flex-direction: column;
-                padding: 15px;
-            }
+    /* --- 1. 全局基礎優化 --- */
             body {
-                font-size: 16px; !important;/* 電腦是 16px，手機改 17px 更清楚 */
-                font-weight: 400; !important;/* 避免字體太細，手機上改回標準粗細 */
-            }
-
-            p, li, a, span {
-                font-size: 16px; /* 確保內文都是 16px */
-                line-height: 1.6;
-                color: #222;
-            }
-
-            /* 2. 調整 Logo 大小與位置 */
-            .logo {
-                margin-bottom: 15px;    /* Logo 下方留白 */
-                font-size: 1.4rem;      /* Logo 字體改小 */
-                text-align: center;     /* 文字置中 */
-                line-height: 1.4;       /* 增加行高防止文字重疊 */
-            }
-            .hero-content h1 {
-                font-size: 2.2rem; /* 標題適當縮小，避免斷行太醜 */
-                line-height: 1.3;
-                font-weight: 700; /* 加粗標題 */
-            }
-
-            /* 3. 調整選單連結 */
-            
-            .nav-links {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 10px;
-                margin-top: 15px;
-                max-width: 100%;
-            }
-            .nav-links a {
-                margin: 0;
-                padding: 5px 10px;
-                background-color: #f0f2f5; /* 淺灰底色 */
-                border-radius: 5px; /* 圓角按鈕 */
-                font-size: 0.95rem;
-                color: #333;
-                font-weight: 500;
+                font-size: 17px !important; /* 加大基礎字級，閱讀不費力 */
+                line-height: 1.7;
             }
 
             section {
-                padding: 40px 20px; !important;/* 減少上下留白 */
+                 padding: 40px 15px !important; /* 縮減邊距，增加可視區域 */
             }
 
-            h1 { font-size: 2.2rem !important; } /* 主標題 */
-            h2 { font-size: 1.7rem !important; } /* 單元標題 */
-            h3 { font-size: 1.3rem !important; }
-            .features-grid, .vehicles-grid, .plans-grid {
-                grid-template-columns: 1fr !important;
-                gap: 20px !important;
-                display: grid !important;
+    /* --- 2. 亮點 A：導航欄減負 (防止遮擋 Hero) --- */
+            nav {
+                 padding: 10px !important;
             }
-            /* 4. 特別調整「立即預約」按鈕 */
-            .cta-button {
-                background-color: var(--primary-color) !important; /* 保持藍色 */
-                color: white !important;
-                width: 100%;
+            .logo {
+                font-size: 1.2rem !important; /* 縮小 Logo，避免佔據兩行 */
+                margin-bottom: 10px !important;
+            }
+            .nav-links {
+                gap: 6px !important; /* 縮小連結間距 */
+            }
+            .nav-links a {
+                font-size: 0.85rem !important;
+                padding: 4px 8px !important;
+                background-color: #f4f4f4; /* 增加淺底色，讓它更像可點擊的按鈕 */
+            }
+       /* 隱藏非核心導航，保持視覺清爽 */
+            .nav-links a[href="#features"], .nav-links a[href="#details"] {
+                display: none; 
             }
 
-            .card, .feature-card, .plan-card {
-                padding: 30px 20px;!important; /* 減少卡片內邊距 */
-            }
+    /* --- 3. 亮點 B：信任條 (防止溢出與排版優化) --- */
             .trust-bar {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 10px;
-                padding: 20px;
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important; /* 改為 2x2 排列 */
+                gap: 12px !important;
+                padding: 15px !important;
+                white-space: normal !important; /* 允許換行，防止衝出螢幕 */
             }
             .trust-item {
-                font-size: 14px; /* 這裡字可以稍微小一點 */
-                justify-content: flex-start;
+                font-size: 0.85rem !important;
             }
-        
-        /* 讓取消政策的字也大一點 */
-            ul li {
-                font-size: 1rem !important;
-                margin-bottom: 10px; /* 列表項目拉開一點距離 */
+
+    /* --- 4. 結構佈局優化 (黃金比例) --- */
+            .hero-content h1 {
+                font-size: 1.8rem !important;
+                line-height: 1.3 !important;
+            }
+
+    /* 強制所有卡片一行顯示一個，並居中 */
+            .features, .vehicles-grid, .plans-container, .features-grid {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 20px !important;
+            }
+
+            .feature-card, .vehicle-card, .plan-box {
+                width: 100% !important;
+                max-width: 350px !important; /* 限制最大寬度，避免在寬屏手機上太散 */
+                box-sizing: border-box;
+            }
+
+    /* 費用說明板塊 */
+            .features-grid {
+                display: grid !important;
+                grid-template-columns: 1fr !important;
+                gap: 15px !important;
+            }
         }
           
-    
     </style>
 </head>
 <body>
