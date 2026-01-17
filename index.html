@@ -328,8 +328,31 @@
             transform: scale(1.1);
             background-color: #00b300;
         }
+            /* --- 信任保證條 (預設樣式) --- */
+        .trust-bar {
+            background-color: #f0f2f5; /* 淺灰底色 */
+            padding: 20px;
+            display: none; /* 電腦版預設隱藏 (如果您希望電腦版也顯示，請把這行刪掉) */
+            border-bottom: 1px solid #e0e0e0;
+        }
 
-        /* 手機版調整 */
+        .trust-item {
+            font-size: 0.95rem;
+            color: #333;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            white-space: nowrap; /* 防止文字換行 */
+        }
+
+      .check-icon {
+            color: #00c300; /* 勾勾顏色 (LINE綠) */
+            font-weight: bold;
+            margin-right: 8px;
+            font-size: 1.1rem;
+    }
+
+   
         /* --- 📱 手機版導航欄專用修復代碼 --- */
         @media (max-width: 768px) {
             .features-grid, .vehicles-grid, .plans-grid, .details-grid {
@@ -458,7 +481,20 @@
                 <p>免費提供第一張兒童安全座椅，車內空間寬敞，適合家庭旅遊 </p>
             </div>
         </div>
-    </section>
+    </section> <div class="trust-bar">
+        <div class="trust-item">
+            <span class="check-icon">✔</span> 合規綠牌車
+        </div>
+        <div class="trust-item">
+            <span class="check-icon">✔</span> 在地多年用車經驗
+        </div>
+        <div class="trust-item">
+            <span class="check-icon">✔</span> 明確用車規則
+        </div>
+        <div class="trust-item">
+            <span class="check-icon">✔</span> 非導遊・純包車服務
+        </div>
+    </div>
 
     <div class="bg-light">
         <section id="vehicles">
