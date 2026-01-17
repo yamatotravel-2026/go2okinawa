@@ -187,10 +187,17 @@
         .vehicle-card {
             background: white;
             border-radius: 10px;
-            overflow: hidden;
+    /* overflow: hidden;  <-- 如果你發現陰影或底部文字還是出不來，可以先註釋掉這一行 */
             box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            flex: 0 1 300px;
-            margin-bottom: 20px;
+    
+    /* 修改這裡：讓卡片在手機端能自動伸展高度 */
+            flex: 1 1 auto; 
+            width: 100%;       /* 確保在手機上佔滿寬度 */
+            max-width: 350px;  /* 在電腦端保持適中寬度 */
+    
+            margin-bottom: 25px; /* 增加卡片之間的間距，視覺更舒服 */
+            display: flex;
+            flex-direction: column;
         }
           
        
@@ -370,19 +377,45 @@
 
     /* --- 2. 亮點 A：導航欄減負 (防止遮擋 Hero) --- */
             nav {
-                 padding: 10px !important;
+                flex-direction: column !important;
+                padding: 15px 10px !important;
+                align-items: center !important;
             }
             .logo {
-                font-size: 1.2rem !important; /* 縮小 Logo，避免佔據兩行 */
-                margin-bottom: 10px !important;
+                margin-bottom: 15px !important;
+                font-size: 1.2rem !important;
+                text-align: center !important;
+                width: 100%;
+                display: block;
+                letter-spacing: 1px;
             }
             .nav-links {
-                gap: 6px !important; /* 縮小連結間距 */
+                display: flex !important;
+                flex-wrap: wrap !important; /* 核心：允許換行 */
+                justify-content: center !important;
+                gap: 8px !important; /* 按鈕之間的均勻間距 */
+                width: 100%;
+                margin-top: 5px;
             }
             .nav-links a {
-                font-size: 0.85rem !important;
-                padding: 4px 8px !important;
-                background-color: #f4f4f4; /* 增加淺底色，讓它更像可點擊的按鈕 */
+                margin: 0 !important; /* 清除原本的 marginLeft */
+                padding: 8px 12px !important;
+                font-size: 14px !important;
+                background-color: #f1f3f5; /* 淺灰色底，像小按鈕 */
+                border-radius: 6px;
+                color: #495057 !important;
+                flex: 0 1 auto; /* 讓寬度隨文字長短自動調整 */
+                white-space: nowrap; /* 防止單個按鈕內文字換行 */
+                border: 1px solid #e9ecef;
+            }
+            .nav-links a.cta-button {
+                background-color: var(--primary-color) !important;
+                color: white !important;
+                font-weight: bold;
+                border: none;
+                flex: 1 1 auto; /* 讓預約按鈕在最後一行可以撐滿 */
+                max-width: 200px;
+                text-align: center;
             }
        /* 隱藏非核心導航，保持視覺清爽 */
             .nav-links a[href="#features"], .nav-links a[href="#details"] {
